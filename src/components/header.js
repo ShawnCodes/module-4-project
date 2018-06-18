@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 
 class Header extends Component {
-  constructor() {
-    super(props);
-
-  }
-
-  render {
+  render() {
     return (
-      <div className="header">HEADER</div>
-    )
+      <div>
+        HEADER
+        SUBHEADER
+      </div>
+    );
   }
 }
+
+export default Header;
