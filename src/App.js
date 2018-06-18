@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Menu from './components/menu';
+// import Menu from './components/menu';
 import Footer from './components/footer';
 import Content from './components/content';
 import Header from './components/header';
@@ -13,9 +13,9 @@ class App extends Component {
       <div className="header">
       <Header/>
   </div>
-      <div >
+      {/* <div >
         <Menu/>
-    </div>
+    </div> */}
         <div className="content">
           <Content/>
       </div>
