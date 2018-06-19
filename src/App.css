@@ -1,3 +1,7 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+
+
 .App {
   text-align: center;
 }
@@ -38,7 +42,7 @@
         "h h h h h h h h h h h h"
         "c c c c c c c c c c c c"
         "c c c c c c c c c c c c"
-        "f f f f f f f f f f f f";
+        "c c c c c c c c c c c c";
 }
 
 
@@ -63,8 +67,9 @@
 
 /* Style the links inside the navigation bar */
 .topnav a {
+  font-family: Raleway;
     float: right;
-    color: black;
+    color: gray;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -73,15 +78,15 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: gray;
+    font-weight: bold;
     color: black;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+/* .topnav a.active {
     background-color: white;
     color: black;
-}
+} */
 
 #home-button {
   float: left;
