@@ -54,7 +54,8 @@
 }
 .content {
     grid-area: c;
-}
+    border-top-style: 20px solid;
+  }
 .footer {
    grid-area: f;
 }
