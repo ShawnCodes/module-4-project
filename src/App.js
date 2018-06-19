@@ -3,11 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 import Content from './components/content';
 import Header from './components/header';
+import SliderRender from './components/slider'
 const URL = 'http://localhost:10524/api/v1/items'
 
 class App extends Component {
-  state = {
-    items: []
+  constructor(props){
+    super(props);
+
+    this.state = {
+      items: []
+    }
+
+    this.settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    }
   }
 
 
@@ -18,13 +31,14 @@ componentDidMount() {
 render() {
   return (
     <div className="container">
-    <div className="header">
-      <Header/>
-    </div>
-    <div className="content">
-      <Content contents={this.state.items}/>
-    </div>
-  </div>);
+      <div className="header">
+        <Header/>
+      </div>
+      <div className="content">
+        <SliderRender {...this.settings} />
+        <Content contents={this.state.items}/>
+      </div>
+    </div>)
 }
 }
 
