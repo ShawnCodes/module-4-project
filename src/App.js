@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      items: []
+      items: [],
+      itemSearch: ''
     }
 
     this.settings = {
@@ -25,21 +26,28 @@ class App extends Component {
     }
   }
 
+handleSearch = (event) => {
+  const itemSearch = event.target.value
+  this.setState({
+    itemSearch
+  })
+}
 
 componentDidMount() {
   fetch(URL).then(res => res.json()).then(json => this.setState({items: json}))
 }
 
 render() {
+  console.log(this.state.itemSearch)
   const Validimages = this.state.items.length !== 0
   return (
     <div className="container">
       <div className="header">
-        <Header/>
+        <Header handleSearch={this.handleSearch}/>
       </div>
       <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
-      <Content contents={this.state.items}/>
+      <Content contents={this.state.items} itemSearch={this.state.itemSearch}/>
       </div>
     </div>)
 }
