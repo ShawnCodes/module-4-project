@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 export default class SliderRender extends React.Component{
   render(){
     return(
-      <div>
+      <center><div>
       <Slider {...this.props}>
         <div>
           <img className="slider-image" src={this.props.contents[0].img_src} />
@@ -21,7 +21,7 @@ export default class SliderRender extends React.Component{
       </Slider>
       <br />
       <br />
-    </div>
+  </div></center>
     )
   }
 

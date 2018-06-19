@@ -98,6 +98,8 @@
   width: 300px;
   display: inline-grid;
   padding: 5px;
-  /* height: 400px; */
+}
 
+.slider-image {
+  width: 50vw;
 }
