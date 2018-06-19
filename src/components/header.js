@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Form from './form'
 
 class Header extends Component {
   render() {
@@ -9,6 +9,7 @@ class Header extends Component {
       <a>My Items</a>
       <a>My Wishlist</a>
       <a>Categories</a>
+      <Form handleSearch={this.props.handleSearch}/>
       </div>
     );
   }
