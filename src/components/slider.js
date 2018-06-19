@@ -7,16 +7,16 @@ export default class SliderRender extends React.Component{
       <div>
       <Slider {...this.props}>
         <div>
-          <h2>1</h2>
+          <img src={this.props.contents[0].img_src} />
         </div>
         <div>
-          <h2>2</h2>
+          <img src={this.props.contents[1].img_src} />
         </div>
         <div>
-          <h2>3</h2>
+          <img src={this.props.contents[2].img_src} />
         </div>
         <div>
-          <h2>4</h2>
+          <img src={this.props.contents[3].img_src} />
         </div>
       </Slider>
       <br />

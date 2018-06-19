@@ -29,14 +29,15 @@ componentDidMount() {
 }
 
 render() {
+  const Validimages = this.state.items.length !== 0
   return (
     <div className="container">
       <div className="header">
         <Header/>
       </div>
       <div className="content">
-        <SliderRender {...this.settings} />
-        <Content contents={this.state.items}/>
+        {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
+      <Content contents={this.state.items}/>
       </div>
     </div>)
 }
