@@ -12,7 +12,7 @@ class Content extends Component {
       <div>
       <img id="images" src={content.img_src} />
       </div>)}
-      </div>
+    </div>
     );
   }
 }
