@@ -83,11 +83,13 @@
     color: black;
 }
 
-/* Add a color to the active/current link */
-/* .topnav a.active {
-    background-color: white;
-    color: black;
-} */
+input{
+   text-align:center;
+   border: 2px solid gray;
+    border-radius: 4px;
+    width: 200px;
+    font-family: Raleway;
+}
 
 #home-button {
   float: left;
@@ -98,8 +100,16 @@
   width: 300px;
   display: inline-grid;
   padding: 5px;
+  height: auto;
 }
 
 .slider-image {
   width: 50vw;
+}
+
+.search {
+margin: auto;
+width: 50%;
+padding-left: 480px;
+padding-top: 18px;
 }

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 export default class Search extends Component {
   render() {
     return (
-      <div>
+      <div className='search'>
       <label>
-      Search:
-      <input type="text" name="searchtext" onChange={this.props.handleSearch} />
+      <input placeholder="Search" type="text" name="searchtext" onChange={this.props.handleSearch} />
       </label>
       </div>
     );
