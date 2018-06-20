@@ -81,8 +81,15 @@ inputNewItem = (event) => {
     })
 }
 
+deleteItem = (event) => {
+  const ItemId = event.target.parentNode.id
+  const newItems = (this.state.items.filter(item => item.id != ItemId))
+  this.setState({
+    items: newItems
+  })
+}
+
 render() {
-  debugger
   const Validimages = this.state.items.length !== 0
   return (
     <div className="container">
@@ -91,7 +98,7 @@ render() {
       </div>
       <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
-      <Content contents={this.state.items} itemSearch={this.state.itemSearch}/>
+      <Content contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem}/>
       </div>
       <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />
     </div>)
