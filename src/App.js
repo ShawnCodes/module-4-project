@@ -3,15 +3,19 @@ import './App.css';
 import Content from './components/content';
 import Header from './components/header';
 import SliderRender from './components/slider'
+import CreateItem from './components/createItem'
 const URL = 'http://localhost:10524/api/v1/items'
 
-class App extends Component {
+export default class App extends Component {
   constructor(props){
     super(props);
 
     this.state = {
       items: [],
-      itemSearch: ''
+      itemSearch: '',
+      itemName: '',
+      itemPrice: '',
+      itemImage: ''
     }
 
     this.settings = {
@@ -33,10 +37,52 @@ handleSearch = (event) => {
 }
 
 componentDidMount() {
-  fetch(URL).then(res => res.json()).then(json => this.setState({items: json}))
+  fetch(URL)
+  .then(res => res.json())
+  .then(json => this.setState({items: json}))
+}
+
+postNewItem = (event) => {
+  event.preventDefault()
+  fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type' : 'application/json'
+    },
+    body: JSON.stringify({
+      name: this.state.itemName,
+      amount: 1,
+      price: this.state.itemPrice,
+      img_src: this.state.itemImage
+    })
+  })
+  .then(res => res.json())
+  .then(response => this.setState({
+    items: [...this.state.items, response],
+    itemName: '',
+    itemPrice: '',
+    itemImage: ''
+  }))
+}
+
+inputNewItem = (event) => {
+  if (event.target.name === "name")
+    this.setState({
+      itemName: event.target.value
+    })
+  else if (event.target.name === "price")
+    this.setState({
+      itemPrice: event.target.value
+    })
+  else if (event.target.name === "image")
+    this.setState({
+      itemImage: event.target.value
+    })
 }
 
 render() {
+  debugger
   const Validimages = this.state.items.length !== 0
   return (
     <div className="container">
@@ -47,8 +93,7 @@ render() {
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
       <Content contents={this.state.items} itemSearch={this.state.itemSearch}/>
       </div>
+      <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />
     </div>)
 }
 }
-
-export default App;
