@@ -14,14 +14,14 @@ class Content extends Component {
   }
   render() {
     const filterItems = this.props.contents.filter(content => {
-      return content.name.includes(this.props.itemSearch)
+      return content.name.toLowerCase().includes(this.props.itemSearch.toLowerCase())
     }).map((content, index) => {
-      return (<div data-aos="fade" data-aos-delay="10000" data-aos-duration="500"><img id="images" src={content.img_src} key={index} alt={content.name} /></div>)
+      return (<div id={content.id} data-aos="fade" data-aos-delay="10000" data-aos-duration="500"><img id="images" src={content.img_src} key={index} alt={content.name} /></div>)
     })
 
     const allItems = this.props.contents.map((content, index) =>
-            <div data-aos="fade" data-aos-delay="10000" data-aos-duration="500">
-            <img id="images" src={content.img_src} key={index} alt={content.name} />
+            <div id={content.id} data-aos="fade" data-aos-delay="10000" data-aos-duration="500">
+            <img id="images" src={content.img_src} key={index} alt={content.name} onClick={this.props.deleteItem} />
             </div>)
     return (
       <div>

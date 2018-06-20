@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-export default class Form extends Component {
-  constructor(){
-    super()
-
-    this.state={
-      value: ''
-    }
-  }
+export default class Search extends Component {
   render() {
     return (
       <div className='search'>
