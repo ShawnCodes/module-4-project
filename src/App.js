@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Content from './components/content';
+import ContentContainer from './components/contentcontainer';
 import Header from './components/header';
 import SliderRender from './components/slider'
 import CreateItem from './components/createItem'
@@ -102,7 +102,7 @@ render() {
       </div>
       <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
-      <Content contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem}/>
+      <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem}/>
       </div>
       <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />
     </div>)
