@@ -87,6 +87,10 @@ deleteItem = (event) => {
   this.setState({
     items: newItems
   })
+
+  fetch(URL + "/" + ItemId, {
+    method: 'delete'
+  })
 }
 
 render() {
