@@ -82,8 +82,8 @@ inputNewItem = (event) => {
 }
 
 deleteItem = (event) => {
-  const ItemId = event.target.parentNode.id
-  const newItems = (this.state.items.filter(item => item.id != ItemId))
+  const ItemId = parseInt((event.target.parentNode.id), 10)
+  const newItems = (this.state.items.filter(item => item.id !== ItemId))
   this.setState({
     items: newItems
   })
