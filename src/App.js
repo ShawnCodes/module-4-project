@@ -15,7 +15,10 @@ export default class App extends Component {
       itemSearch: '',
       itemName: '',
       itemPrice: '',
-      itemImage: ''
+      itemImage: '',
+      itemNameUpdate: '',
+      itemPriceUpdate: '',
+      itemImageUpdate: ''
     }
 
     this.settings = {
@@ -81,6 +84,23 @@ inputNewItem = (event) => {
     })
 }
 
+inputUpdateItem = (event) => {
+  const itemId = parseInt((event.target.parentNode.parentNode.parentNode.parentNode.id), 10)
+  const specificItem = this.state.items.find(item => item.id === itemId)
+  if (event.target.name === "name")
+    this.setState({
+      itemNameUpdate: specificItem.name
+    })
+  else if (event.target.name === "price")
+    this.setState({
+      itemPriceUpdate: specificItem.price
+    })
+  else if (event.target.name === "image")
+    this.setState({
+      itemImageUpdate: specificItem.img_src
+    })
+}
+
 deleteItem = (event) => {
   const ItemId = parseInt((event.target.parentNode.id), 10)
   const newItems = (this.state.items.filter(item => item.id !== ItemId))
@@ -102,7 +122,7 @@ render() {
       </div>
       <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
-      <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem}/>
+      <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem} itemNameUpdate={this.state.itemNameUpdate} itemImageUpdate={this.state.itemImageUpdate} itemPriceUpdate={this.state.itemPriceUpdate} inputUpdateItem={this.inputUpdateItem}/>
       </div>
       <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />
     </div>)

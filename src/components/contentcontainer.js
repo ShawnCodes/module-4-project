@@ -7,11 +7,9 @@ export default class ContentContainer extends Component {
   constructor(props) {
     super(props);
     AOS.init()
-
-    this.state={
-      isClicked: false
-    }
   }
+
+
 
   componentWillReceiveProps(){
     AOS.refresh()
@@ -20,11 +18,11 @@ export default class ContentContainer extends Component {
     const filterItems = this.props.contents.filter(content => {
       return content.name.toLowerCase().includes(this.props.itemSearch.toLowerCase())
     }).map((content, index) => {
-      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} />)
+      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} />)
     })
 
     const allItems = this.props.contents.map((content, index) => {
-      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} />)
+      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem}/>)
     })
 
     return (
