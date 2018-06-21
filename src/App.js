@@ -4,6 +4,8 @@ import ContentContainer from './components/contentcontainer';
 import Header from './components/header';
 import SliderRender from './components/slider'
 import CreateItem from './components/createItem'
+import ChatRoom from './containers/ChatRoom';
+import { Route } from 'react-router-dom';
 const URL = 'http://localhost:10524/api/v1/items'
 
 export default class App extends Component {
@@ -105,6 +107,12 @@ render() {
       <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem}/>
       </div>
       <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />
+    <Route
+      path='/chat'
+      render={ () => <div className="Chat">
+       <ChatRoom />
+   </div> }
+ />
     </div>)
 }
 }
