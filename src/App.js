@@ -8,6 +8,7 @@ import ChatRoom from './containers/ChatRoom';
 import Register from './containers/Register'
 import { Route } from 'react-router-dom';
 const URL = 'http://localhost:10524/api/v1/items'
+const USERSURL = 'http://localhost:10524/api/v1/users'
 
 export default class App extends Component {
   constructor(props){
@@ -116,6 +117,26 @@ deleteItem = (event) => {
   })
 }
 
+newAccount = (event) => {
+  event.preventDefault()
+  const Username = event.target.user.value
+  const Password = event.target.pass.value
+
+  fetch(USERSURL, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type' : 'application/json'
+    },
+    body: JSON.stringify({
+      name: Username,
+      password: Password,
+    })
+  })
+  .then(res => res.json())
+  .then(response => console.log(response))
+}
+
 render() {
   const Validimages = this.state.items.length !== 0
   return (
@@ -139,7 +160,7 @@ render() {
        </div>} />
     <Route
       path='/register'
-      render={ () => <Register />}
+      render={ () => <Register newAccount={this.newAccount} />}
  />
     </div>)
 }

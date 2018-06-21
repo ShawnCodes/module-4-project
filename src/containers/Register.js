@@ -13,17 +13,17 @@ export default class Register extends React.Component {
 
     render(){
       return(
-        <div className="registrationBlock">
-          <form>
+        <div className={"registrationBlock"}>
+          <form onSubmit={this.props.newAccount}>
           <label className="userName">
           Username:
-          <input type="text" />
+          <input type="text" name="user" />
           </label>
           <br/>
           <br/>
           <label className="userPassword">
           Password:
-          <input type="text" />
+          <input type="password" name="pass" />
           </label>
           <br />
           <br />
