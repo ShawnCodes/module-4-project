@@ -5,8 +5,9 @@ import Header from './components/header';
 import SliderRender from './components/slider'
 import CreateItem from './components/createItem'
 import ChatRoom from './containers/ChatRoom';
-import Register from './containers/Register'
+import Register from './containers/Register';
 import { Route } from 'react-router-dom';
+import Login from './components/Login'
 const URL = 'http://localhost:10524/api/v1/items'
 const USERSURL = 'http://localhost:10524/api/v1/users'
 
@@ -24,7 +25,10 @@ export default class App extends Component {
       itemPriceUpdate: '',
       itemImageUpdate: '',
       newUserName: '',
-      newUserPassword: ''
+      newUserPassword: '',
+      UserName: '',
+      UserPassword: '',
+      currentUser: ''
     }
 
     this.settings = {
@@ -142,16 +146,36 @@ newAccount = (event) => {
 }
 
 newAccountInput = (event) => {
-  console.log(event.target.name)
-  if (event.target.name === "user")
+  if (event.target.name === "user"){
     this.setState({
       newUserName: event.target.value
-    })
-  else if (event.target.name === "pass")
+    })}
+  else if (event.target.name === "pass"){
     this.setState({
       newUserPassword: event.target.value
-    })
+    })}
 }
+
+currentAccount = (event) => {
+  event.preventDefault()
+  
+  this.setState({
+    UserName: '',
+    UserPassword: ''
+  })
+}
+
+existingAccountInput = (event) => {
+  if (event.target.name === "user"){
+    this.setState({
+      UserName: event.target.value
+    })}
+  else if (event.target.name === "pass"){
+    this.setState({
+      UserPassword: event.target.value
+    })}
+}
+
 
 render() {
   const Validimages = this.state.items.length !== 0
@@ -178,6 +202,9 @@ render() {
       path='/register'
       render={ () => <Register newAccount={this.newAccount} newAccountInput={this.newAccountInput} newUserName={this.state.newUserName} newUserPassword={this.state.newUserPassword} />}
  />
+    <Route
+      path='/login'
+      render={ () => <Login UserName={this.state.UserName} UserPassword={this.state.UserPassword} existingAccountInput={this.existingAccountInput} currentAccount={this.currentAccount}/>} />
     </div>)
 }
 }
