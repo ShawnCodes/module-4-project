@@ -22,7 +22,9 @@ export default class App extends Component {
       itemImage: '',
       itemNameUpdate: '',
       itemPriceUpdate: '',
-      itemImageUpdate: ''
+      itemImageUpdate: '',
+      newUserName: '',
+      newUserPassword: ''
     }
 
     this.settings = {
@@ -119,8 +121,6 @@ deleteItem = (event) => {
 
 newAccount = (event) => {
   event.preventDefault()
-  const Username = event.target.user.value
-  const Password = event.target.pass.value
 
   fetch(USERSURL, {
     method: 'POST',
@@ -129,12 +129,28 @@ newAccount = (event) => {
       'Content-Type' : 'application/json'
     },
     body: JSON.stringify({
-      name: Username,
-      password: Password,
+      name: this.state.newUserName,
+      password: this.state.newUserPassword,
     })
   })
   .then(res => res.json())
   .then(response => console.log(response))
+  .then(this.setState({
+    newUserName: '',
+    newUserPassword: ''
+  }))
+}
+
+newAccountInput = (event) => {
+  console.log(event.target.name)
+  if (event.target.name === "user")
+    this.setState({
+      newUserName: event.target.value
+    })
+  else if (event.target.name === "pass")
+    this.setState({
+      newUserPassword: event.target.value
+    })
 }
 
 render() {
@@ -160,7 +176,7 @@ render() {
        </div>} />
     <Route
       path='/register'
-      render={ () => <Register newAccount={this.newAccount} />}
+      render={ () => <Register newAccount={this.newAccount} newAccountInput={this.newAccountInput} newUserName={this.state.newUserName} newUserPassword={this.state.newUserPassword} />}
  />
     </div>)
 }

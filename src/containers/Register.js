@@ -10,13 +10,13 @@ export default class Register extends React.Component {
           <form onSubmit={this.props.newAccount}>
           <label className="userName">
           Username:
-          <input type="text" name="user" />
+          <input type="text" name="user" value={this.props.newUserName} onChange={this.props.newAccountInput} />
           </label>
           <br/>
           <br/>
           <label className="userPassword">
           Password:
-          <input type="password" name="pass" />
+          <input type="password" name="pass" value={this.props.newUserPassword} onChange={this.props.newAccountInput} />
           </label>
           <br />
           <br />
