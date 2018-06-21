@@ -12,35 +12,35 @@ class Chatroom extends React.Component {
             chats: [{
                 username: "Austin Paley",
                 content: <p>Hello World!</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Alice Chen",
                 content: <p>I'm just testing this</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Austin Paley",
                 content: <p>we'll probably need sockets</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Shawn Tannor",
                 content: <p>Lorem ipsum dolor sit amet, nibh ipsum. Cum class sem inceptos incidunt sed sed. Tempus wisi enim id, arcu sed lectus aliquam, nulla vitae est bibendum molestie elit risus.</p>,
-                img: "http://i.imgur.com/ARbQZix.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Austin Paley",
                 content: <p>So</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Austin Paley",
                 content: <p>Idk if we should do this before auth</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Austin Paley",
                 content: <p>But it is necessary</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }, {
                 username: "Shawn Tannor",
                 content: <p>Definitely! Sounds great!</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }]
         };
 
@@ -66,7 +66,7 @@ class Chatroom extends React.Component {
             chats: this.state.chats.concat([{
                 username: "Austin Paley",
                 content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>,
-                img: "http://i.imgur.com/Tj5DGiO.jpg",
+                img: "https://miro.medium.com/fit/c/240/240/1*MZHg53N_GtuEKJFirfMMhQ.png",
             }])
         }, () => {
             ReactDOM.findDOMNode(this.refs.msg).value = "";
