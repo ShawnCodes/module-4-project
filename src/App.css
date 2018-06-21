@@ -239,3 +239,27 @@ p {
   background: #1EE494;
   color: #FFF;
 }
+
+.userName{
+  background-color: grey;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.userPassword{
+  background-color: grey;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.userRegistration{
+  background-color: grey;
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
