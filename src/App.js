@@ -5,6 +5,7 @@ import Header from './components/header';
 import SliderRender from './components/slider'
 import CreateItem from './components/createItem'
 import ChatRoom from './containers/ChatRoom';
+import Register from './containers/Register'
 import { Route } from 'react-router-dom';
 const URL = 'http://localhost:10524/api/v1/items'
 
@@ -135,7 +136,10 @@ render() {
       path='/chat'
       render={ () => <div className="Chat">
        <ChatRoom />
-   </div> }
+       </div>} />
+    <Route
+      path='/register'
+      render={ () => <Register />}
  />
     </div>)
 }
