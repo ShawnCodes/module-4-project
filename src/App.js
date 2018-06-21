@@ -17,6 +17,7 @@ export default class App extends Component {
 
     this.state = {
       items: [],
+      users: [],
       itemSearch: '',
       itemName: '',
       itemPrice: '',
@@ -28,7 +29,8 @@ export default class App extends Component {
       newUserPassword: '',
       UserName: '',
       UserPassword: '',
-      currentUser: ''
+      currentUserId: '',
+      currentUserName: '',
     }
 
     this.settings = {
@@ -53,6 +55,10 @@ componentDidMount() {
   fetch(URL)
   .then(res => res.json())
   .then(json => this.setState({items: json}))
+
+  fetch(USERSURL)
+  .then(res => res.json())
+  .then(json => this.setState({users: json}))
 }
 
 postNewItem = (event) => {
@@ -138,7 +144,6 @@ newAccount = (event) => {
     })
   })
   .then(res => res.json())
-  .then(response => console.log(response))
   .then(this.setState({
     newUserName: '',
     newUserPassword: ''
@@ -158,11 +163,13 @@ newAccountInput = (event) => {
 
 currentAccount = (event) => {
   event.preventDefault()
-  
-  this.setState({
-    UserName: '',
-    UserPassword: ''
-  })
+  const CurrentUser = this.state.users.filter(user => user.name.toLowerCase() === this.state.UserName.toLowerCase()).find(user => user.password === this.state.UserPassword)
+  if (CurrentUser){
+    this.setState({
+      currentUserId: CurrentUser.id,
+      currentUserName: CurrentUser.name
+    })
+  }
 }
 
 existingAccountInput = (event) => {
@@ -176,8 +183,8 @@ existingAccountInput = (event) => {
     })}
 }
 
-
 render() {
+  console.log(this.state)
   const Validimages = this.state.items.length !== 0
   return (
     <div className="container">
