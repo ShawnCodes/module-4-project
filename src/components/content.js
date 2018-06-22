@@ -35,4 +35,6 @@ export default class Content extends Component {
   }
 }
 
+
+
 // data-aos="fade" data-aos-delay="10000" data-aos-duration="500"
