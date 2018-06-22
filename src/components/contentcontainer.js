@@ -31,6 +31,3 @@ export default class ContentContainer extends Component {
     );
   }
 }
-
-// <Route path='/content/:contentid' render={( {match} ) => (
-//   <Content content={this.props.content.find(content => content.id === match.params.contentid)} />)}/>

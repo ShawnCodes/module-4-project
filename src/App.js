@@ -147,8 +147,9 @@ newAccount = (event) => {
   })
   .then(res => res.json())
   .then(this.setState({
+    currentUserName: this.state.newUserName,
     newUserName: '',
-    newUserPassword: ''
+    newUserPassword: '',
   }))
 }
 
@@ -186,12 +187,12 @@ existingAccountInput = (event) => {
 }
 
 render() {
-  console.log(this.state)
   const Validimages = this.state.items.length !== 0
+      console.log(this.state, "app")
   return (
     <div className="container">
       <div className="header">
-        <Header handleSearch={this.handleSearch}/>
+        <Header handleSearch={this.handleSearch} currentUserId={this.state.currentUserId} currentUserName={this.state.currentUserName}/>
       </div>
     <Route
       exact path="/"
@@ -214,6 +215,9 @@ render() {
     <Route
       path='/login'
       render={ () => <Login UserName={this.state.UserName} UserPassword={this.state.UserPassword} existingAccountInput={this.existingAccountInput} currentAccount={this.currentAccount}/>} />
-    </div>)
+    <Route path='/content/:contentid' component={Content} />
+  </div>
+  )
+
 }
 }
