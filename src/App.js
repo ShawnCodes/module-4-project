@@ -223,7 +223,7 @@ render() {
     <Route
       path='/login'
       render={ () => <Login UserName={this.state.UserName} UserPassword={this.state.UserPassword} existingAccountInput={this.existingAccountInput} currentAccount={this.currentAccount}/>} />
-    <Route path='/content/:contentid' render={ () => <Content id={this.state.currentItem.id} name={this.state.currentItem.name} src={this.state.currentItem.img_src}/>} />
+    <Route path='/content/:contentid' render={ () => <Content id={this.state.currentItem.id} name={this.state.currentItem.name} src={this.state.currentItem.img_src} deleteItem={this.deleteItem} itemNameUpdate={this.itemNameUpdate} itemImageUpdate={this.itemImageUpdate} itemPriceUpdate={this.itemPriceUpdate} currentItem={this.currentItem}/>} />
 </div>
   )
 

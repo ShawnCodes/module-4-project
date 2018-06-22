@@ -17,11 +17,11 @@ export default class ContentContainer extends Component {
     const filterItems = this.props.contents.filter(content => {
       return content.name.toLowerCase().includes(this.props.itemSearch.toLowerCase())
     }).map((content, index) => {
-      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/></Link>)
+      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/></Link>)
     })
 
     const allItems = this.props.contents.map((content, index) => {
-      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/></Link>)
+      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/></Link>)
     })
 
     return (
