@@ -5,7 +5,7 @@ export default class Update extends Component {
     return (
       <div>
         <h3>Update Item</h3>
-        <form>
+        <form onSubmit={this.props.updateItem}>
         <label>
           Item Name:
           <input type="text" name="name" value={this.props.itemNameUpdate} onChange={this.props.inputUpdateItem} />

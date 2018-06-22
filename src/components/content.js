@@ -21,9 +21,8 @@ export default class Content extends Component {
   }
 
   render() {
-    console.log("content", this.props)
     const HoverContent = this.state.isHovered ?
-    <Update itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem}/>
+    <Update itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} updateItem={this.props.updateItem}/>
      :
      null
 

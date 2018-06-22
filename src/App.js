@@ -88,6 +88,26 @@ postNewItem = (event) => {
   }))
 }
 
+updateItem = (event) => {
+  event.preventDefault()
+  fetch(URL + "/" + this.state.currentItem.id, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type' : 'application/json'
+    },
+    body: JSON.stringify({
+      name: this.state.itemNameUpdate,
+      amount: 1,
+      price: this.state.itemPriceUpdate,
+      img_src: this.state.itemImageUpdate,
+      user_id: 1
+    })
+  })
+  .then(res => res.json())
+  .then(response => console.log(response))
+}
+
 inputNewItem = (event) => {
   if (event.target.name === "name")
     this.setState({
@@ -108,15 +128,15 @@ inputUpdateItem = (event) => {
   const specificItem = this.state.items.find(item => item.id === itemId)
   if (event.target.name === "name")
     this.setState({
-      itemNameUpdate: specificItem.name
+      itemNameUpdate: event.target.value
     })
   else if (event.target.name === "price")
     this.setState({
-      itemPriceUpdate: specificItem.price
+      itemPriceUpdate: event.target.value
     })
   else if (event.target.name === "image")
     this.setState({
-      itemImageUpdate: specificItem.img_src
+      itemImageUpdate: event.target.value
     })
 }
 
@@ -196,7 +216,6 @@ currentItem = (id) => {
 
 render() {
   const Validimages = this.state.items.length !== 0
-  console.log(this.state.currentItem)
   return (
     <div className="container">
       <div className="header">
@@ -223,11 +242,9 @@ render() {
     <Route
       path='/login'
       render={ () => <Login UserName={this.state.UserName} UserPassword={this.state.UserPassword} existingAccountInput={this.existingAccountInput} currentAccount={this.currentAccount}/>} />
-    <Route path='/content/:contentid' render={ () => <Content id={this.state.currentItem.id} name={this.state.currentItem.name} src={this.state.currentItem.img_src} deleteItem={this.deleteItem} itemNameUpdate={this.itemNameUpdate} itemImageUpdate={this.itemImageUpdate} itemPriceUpdate={this.itemPriceUpdate} currentItem={this.currentItem}/>} />
+    <Route path='/content/:contentid' render={ () => <Content id={this.state.currentItem.id} name={this.state.currentItem.name} src={this.state.currentItem.img_src} deleteItem={this.deleteItem} itemNameUpdate={this.itemNameUpdate} itemImageUpdate={this.itemImageUpdate} itemPriceUpdate={this.itemPriceUpdate} currentItem={this.currentItem} inputUpdateItem={this.inputUpdateItem} updateItem={this.updateItem} />} />
 </div>
   )
 
 }
 }
-
-// <Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/>
