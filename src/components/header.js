@@ -9,7 +9,7 @@ class Header extends Component {
       <Link to={'/'} id="home-button" href="#home">Home</Link>
       <a>My Items</a>
       <a>My Wishlist</a>
-      <a>Categories</a>
+      <Link to={'/create-item'}>Create Item</Link>
       {this.props.currentUserId === "" && this.props.currentUserName === "" ? <Link to={'/register'} id="registration-button">Register</Link> : <Link to={'/login'} id="login-button">Login</Link>}
       <Search handleSearch={this.props.handleSearch}/>
       </div>
