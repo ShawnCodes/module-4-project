@@ -21,13 +21,14 @@ export default class Content extends Component {
   }
 
   render() {
+    console.log("content", this.props)
     const HoverContent = this.state.isHovered ?
     <Update itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem}/>
      :
      null
 
     return (
-        <div id={this.props.id} onDoubleClick={this.mouseOver}>
+        <div id={this.props.id} onDoubleClick={this.mouseOver} onClick={() => this.props.currentItem(this.props.id)}>
           <img id="images" src={this.props.src} key={this.props.id} alt={this.props.name} onDragEnd={this.props.deleteItem} />
           {HoverContent}
         </div>

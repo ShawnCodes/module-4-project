@@ -32,6 +32,7 @@ export default class App extends Component {
       UserPassword: '',
       currentUserId: '',
       currentUserName: '',
+      currentItem: '',
     }
 
     this.settings = {
@@ -186,9 +187,16 @@ existingAccountInput = (event) => {
     })}
 }
 
+currentItem = (id) => {
+  const currentItem = this.state.items.find(item => item.id === id)
+  this.setState({
+    currentItem
+  })
+}
+
 render() {
   const Validimages = this.state.items.length !== 0
-      console.log(this.state, "app")
+  console.log(this.state.currentItem)
   return (
     <div className="container">
       <div className="header">
@@ -198,7 +206,7 @@ render() {
       exact path="/"
       render={() => <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
-      <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem} itemNameUpdate={this.state.itemNameUpdate} itemImageUpdate={this.state.itemImageUpdate} itemPriceUpdate={this.state.itemPriceUpdate} inputUpdateItem={this.inputUpdateItem}/>
+      <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem} itemNameUpdate={this.state.itemNameUpdate} itemImageUpdate={this.state.itemImageUpdate} itemPriceUpdate={this.state.itemPriceUpdate} inputUpdateItem={this.inputUpdateItem} currentItem={this.currentItem}/>
     </div>} />
     <Route
       path="/create-item"
@@ -215,9 +223,11 @@ render() {
     <Route
       path='/login'
       render={ () => <Login UserName={this.state.UserName} UserPassword={this.state.UserPassword} existingAccountInput={this.existingAccountInput} currentAccount={this.currentAccount}/>} />
-    <Route path='/content/:contentid' component={Content} />
-  </div>
+    <Route path='/content/:contentid' render={ () => <Content id={this.state.currentItem.id} name={this.state.currentItem.name} src={this.state.currentItem.img_src}/>} />
+</div>
   )
 
 }
 }
+
+// <Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} currentItem={this.props.currentItem}/>

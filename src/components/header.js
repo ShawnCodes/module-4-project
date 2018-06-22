@@ -4,7 +4,6 @@ import Search from './search'
 
 class Header extends Component {
   render() {
-    console.log(this.props.history)
     return (
       <div className="topnav">
       <Link to={'/'} id="home-button" href="#home">Home</Link>
