@@ -8,6 +8,7 @@ import ChatRoom from './containers/ChatRoom';
 import Register from './containers/Register';
 import { Route } from 'react-router-dom';
 import Login from './components/Login'
+import Content from './components/content'
 const URL = 'http://localhost:10524/api/v1/items'
 const USERSURL = 'http://localhost:10524/api/v1/users'
 

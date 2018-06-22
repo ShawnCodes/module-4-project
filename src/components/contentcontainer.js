@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AOS from 'aos';
 import Content from './content'
 import '../../node_modules/aos/dist/aos.css'
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 export default class ContentContainer extends Component {
   constructor(props) {
@@ -17,17 +17,20 @@ export default class ContentContainer extends Component {
     const filterItems = this.props.contents.filter(content => {
       return content.name.toLowerCase().includes(this.props.itemSearch.toLowerCase())
     }).map((content, index) => {
-      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} />)
+      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} /></Link>)
     })
 
     const allItems = this.props.contents.map((content, index) => {
-      return (<Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem}/>)
+      return (<Link to={`/content/${content.id}`}><Content id={content.id} src={content.img_src} name={content.name} deleteItem={this.props.deleteItem} mouseOver={this.mouseOver} itemNameUpdate={this.props.itemNameUpdate} itemImageUpdate={this.props.itemImageUpdate} itemPriceUpdate={this.props.itemPriceUpdate} inputUpdateItem={this.props.inputUpdateItem} /></Link>)
     })
 
     return (
-      <div>
-        {this.props.itemSearch === "" ? allItems : filterItems}
-      </div>
+        <div>
+          {this.props.itemSearch === "" ? allItems : filterItems}
+        </div>
     );
   }
 }
+
+// <Route path='/content/:contentid' render={( {match} ) => (
+//   <Content content={this.props.content.find(content => content.id === match.params.contentid)} />)}/>

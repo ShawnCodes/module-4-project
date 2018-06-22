@@ -27,10 +27,12 @@ export default class Content extends Component {
      null
 
     return (
-        <div id={this.props.id} data-aos="fade" data-aos-delay="10000" data-aos-duration="500" onDoubleClick={this.mouseOver}>
+        <div id={this.props.id} onDoubleClick={this.mouseOver}>
           <img id="images" src={this.props.src} key={this.props.id} alt={this.props.name} onDragEnd={this.props.deleteItem} />
           {HoverContent}
         </div>
     )
   }
 }
+
+// data-aos="fade" data-aos-delay="10000" data-aos-duration="500"
