@@ -73,7 +73,8 @@ postNewItem = (event) => {
       name: this.state.itemName,
       amount: 1,
       price: this.state.itemPrice,
-      img_src: this.state.itemImage
+      img_src: this.state.itemImage,
+      user_id: 1
     })
   })
   .then(res => res.json())
@@ -196,7 +197,7 @@ render() {
       render={() => <div className="content">
         {Validimages ? <SliderRender {...this.settings} contents={this.state.items} /> : null}
       <ContentContainer contents={this.state.items} itemSearch={this.state.itemSearch} deleteItem={this.deleteItem} itemNameUpdate={this.state.itemNameUpdate} itemImageUpdate={this.state.itemImageUpdate} itemPriceUpdate={this.state.itemPriceUpdate} inputUpdateItem={this.inputUpdateItem}/>
-      </div>} />
+    </div>} />
     <Route
       path="/create-item"
       render={ () => <CreateItem postNewItem={this.postNewItem} inputNewItem={this.inputNewItem} itemName={this.state.itemName} itemImage={this.state.itemImage} itemPrice={this.state.itemPrice} />} />

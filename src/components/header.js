@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import Search from './search'
 
 class Header extends Component {
   render() {
     return (
       <div className="topnav">
-        <a id="home-button" href="#home">Home</a>
+      <Link to={'/'} id="home-button" href="#home">Home</Link>
       <a>My Items</a>
       <a>My Wishlist</a>
       <a>Categories</a>

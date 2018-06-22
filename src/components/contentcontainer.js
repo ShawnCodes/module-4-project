@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import AOS from 'aos';
 import Content from './content'
 import '../../node_modules/aos/dist/aos.css'
+import { Route } from 'react-router-dom';
 
 export default class ContentContainer extends Component {
   constructor(props) {
     super(props);
     AOS.init()
   }
-
-
 
   componentWillReceiveProps(){
     AOS.refresh()
